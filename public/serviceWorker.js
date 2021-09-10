@@ -11,12 +11,12 @@ const FILES_TO_CACHE = [
 
 const CACHE_NAME = 'static-cache-v2';
 const DATA_CACHE_NAME = 'data-cache-v1';
+
 self.addEventListener('install', function (event) {
     event.waitUntil(caches.open(CACHE_NAME).then((cache) => {
-            console.log('Files per-cached successfully');
+            console.log('Files pre-cached successfully');
             return cache.addAll(FILES_TO_CACHE);
-        })
-    );
+    }));
     self.skipWaitings();
 });
 self.addEventListener('activate', function (event) {
@@ -26,10 +26,8 @@ self.addEventListener('activate', function (event) {
                         console.log('Removing old cache', key);
                         return caches.delete(key);
                     }
-                })              
-            )
-        })
-    );
+            }))
+    }));
     self.clients.claim();
 });
 self.addEventListener('fetch', function (event) {

@@ -9,7 +9,7 @@ request.onupgradeneeded = function (event) {
 request.onsuccess = function (event) {
     db = event.target.result;
     if (navigator.onLine) {
-        chackDatabase();
+        checkDatabase();
     }
 };
 request.onerror = function (event) {
@@ -21,8 +21,8 @@ function saveRecord(record) {
     store.add(record);
 };
 function checkDatabase() {
-    const transaction = db.transaction(['pending'], 'readWrite');
     const store = transaction.objectStore('pending');
+    const transaction = db.transaction(['pending'], 'readWrite');
     const getAll = store.getAll();
     getAll.onsuccess = function () {
         if (getAll.result.length > 0) {
