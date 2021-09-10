@@ -6,7 +6,7 @@ const FILES_TO_CACHE = [
     '/index.html',
     '/index.js',
     '/manifest.json',
-    '/serviceWorker',
+    '/serviceWorker.js',
 ];
 
 const CACHE_NAME = 'static-cache-v2';
@@ -17,7 +17,6 @@ self.addEventListener('install', function (event) {
             console.log('Files pre-cached successfully');
             return cache.addAll(FILES_TO_CACHE);
     }));
-    self.skipWaitings();
 });
 self.addEventListener('activate', function (event) {
     event.waitUntil(caches.keys().then((keyList) => {
