@@ -43,8 +43,7 @@
 
 ## Questions
 * For additional help or questions about collaboration, please reach out to jpodell21@gmail.com
-* Follow me on Github at 
-* [JamesO1231](http://github.com/JamesO1231)
+* Follow me on Github at [JamesO1231](http://github.com/JamesO1231)
 
 ## Deployment Image
 ![Alt text](./images/budgetTracker.PNG)
